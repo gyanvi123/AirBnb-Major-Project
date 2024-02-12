@@ -99,6 +99,7 @@ app.post("/listings",
 })
 );
 
+
 //Edit Route
 app.get("/listings/:id/edit",  wrapAsync(async (req,res) => {
     //Extract id and find the listing from db
@@ -133,13 +134,13 @@ app.all("*", (req,res,next) => {
     next(new ExpressError(404,"Page Not Found1"));
 });
 
-//Defining middleware to handle the error
-app.use((err,req,res,next) => {
-    let { statusCode=500, message="Something went wrong!"} = err;
-    res.status(statusCode).render("listings/error.ejs", {message});
-    // res.status(statusCode).send(message);
+// //Defining middleware to handle the error
+// app.use((err,req,res,next) => {
+//     let { statusCode=500, message="Something went wrong!"} = err;
+//     res.status(statusCode).render("listings/error.ejs", {message});
+//     // res.status(statusCode).send(message);
 
-});
+// });
 
 app.listen(8080,() => {
     console.log("Server is listening to 8080");
