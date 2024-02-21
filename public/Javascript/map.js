@@ -8,4 +8,8 @@ center: [77.2090, 28.6139], // starting position [lng, lat]
 zoom: 9, // starting zoom
 });
 
- 
+console.log(coordinates);
+
+ const marker = new mapboxgl.Marker()
+ .setLngLat(coordinates) //listing.geometry.coordinates
+ .addTo(map);
