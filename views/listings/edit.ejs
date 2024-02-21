@@ -3,7 +3,7 @@
          <div class="col-8 offset-2">
             <h3>Edit your Listings</h3>
             <!-- HTML Forms can only accept get & post req but we need to have put request here so downloaded method override package and will use condition to conver the post request to put req -->
-            <form method = "POST" action="/listings/<%=listing._id %>?_method=PUT" novalidate class="needs-validation">
+            <form method = "POST" action="/listings/<%=listing._id %>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
                     <input name = "listing[title]" value="<%= listing.title %>" type="text" class="form-control" required/>
@@ -17,11 +17,14 @@
                     <div class="invalid-feedback">Please enter a short description</div>
                 </div>
                   
+                <div class="mb-3">
+                    Original listing image <br>
+                    <img src="<%= originalImageUrl %>">
+                  </div>
 
                   <div class="mb-3">
-                    <label for="image" class="form-label">Image</label>
-                    <input name = "listing[image]" value="<%= listing.image.url %>" type="text"  class="form-control" required/>
-                    <div class="invalid-feedback">Please enter a valid image</div>
+                    <label for="image" class="form-label">Upload New Image</label>
+                    <input name = "listing[image]" type="file"  class="form-control" />
                   </div>
 
                    <div class="row">
