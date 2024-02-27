@@ -117,3 +117,12 @@ height: 400px;
 width: 90vh;
 
 }
+
+.btn-search {
+    background-color: #fe424d;
+    color: #fff;
+}
+.btn-search:hover {
+    background-color: #fe424d;
+    color: #fff;
+}
